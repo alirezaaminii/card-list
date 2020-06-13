@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 793" width="1080" height="793">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M0 -300L1080 -300L1080 1108L0 1108L0 -300Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #fffefe } 
+	</style>
+	<g id="Clip-Path: Mask_Group_1" clip-path="url(#cp1)">
+		<g id="Mask_Group_1">
+			<path id="mobali" class="shp0" d="M0 49.4C0 49.4 131.51 172.54 466.2 63.92C763.2 -32.46 876.6 38.84 963 87.69C1047.6 135.54 1080 149.75 1080 149.75L1080 791.45L0 791.45L0 49.4Z" />
+		</g>
+	</g>
+</svg>

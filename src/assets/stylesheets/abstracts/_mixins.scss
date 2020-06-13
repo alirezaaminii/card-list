@@ -1,0 +1,453 @@
+
+
+//-------------font mixin
+@mixin set-font-main( $family , $weight: 400 , $style: normal ) {
+  font-family: $family, 'Helvetica', sans-serif;
+  font-style: $style;
+  font-weight: $weight;
+}
+
+@mixin set-font( $family , $weight , $style: normal ) {
+  font-family: $family, 'Helvetica', sans-serif !important;
+  font-style: $style !important;
+  font-weight: $weight !important;
+}
+
+//-------------font size mixin
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: ($size / 16px) * 1rem;
+}
+
+//-------------borderRadius mixin
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//@include border-radius(5px);
+
+//-------------box shadow
+@mixin box-shadow( $h: 10px , $v: 10px , $b: 0px , $s: 0px , $c: #000000 ) {
+  -webkit-box-shadow: $h $v $b $s $c;
+  -moz-box-shadow: $h $v $b $s $c;
+  box-shadow: $h $v $b $s $c;
+}
+
+//===============================flex============================
+//-------------flex box
+@mixin flexbox {
+  display: -webkit-box; // old
+  display: -moz-box; // old
+  display: -ms-flexbox; // ie
+  display: -webkit-flex; // new
+  display: flex; // new
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -ms-flex: $values;
+  -webkit-flex: $values;
+  flex: $values;
+}
+
+@mixin flex-order($order) {
+  -webkit-box-ordinal-group: $order; // old
+  -moz-box-ordinal-group: $order; // old
+  -ms-flex-order: $order; // ie
+  -webkit-order: $order; // new
+  order: $order; // new
+}
+
+@mixin flex-direction($direction) {
+  @if $direction == column {
+    //-webkit-flex-direction:vertical;
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  } @else {
+    //-webkit-flex-direction:horizontal;
+    -moz-flex-direction: horizontal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+//===============================end flex============================
+
+//-----------------------gradient
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == vertical {
+    // vertical
+    background: -moz-linear-gradient(bottom, $start-color 0%, $end-color 100%) !important;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, $start-color), color-stop(100%, $end-color)) !important;
+    background: -webkit-linear-gradient(bottom, $start-color 0%, $end-color 100%) !important;
+    background: -o-linear-gradient(bottom, $start-color 0%, $end-color 100%) !important;
+    background: -ms-linear-gradient(bottom, $start-color 0%, $end-color 100%) !important;
+    background: linear-gradient(to top, $start-color 0%, $end-color 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start-color', endColorstr='$end-color', GradientType=0);
+  } @else if $orientation == horizontal {
+    // horizontal
+    background: -moz-linear-gradient(left, $start-color 0%, $end-color 100%) !important;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, $start-color), color-stop(100%, $end-color)) !important;
+    background: -webkit-linear-gradient(left, $start-color 0%, $end-color 100%) !important;
+    background: -o-linear-gradient(left, $start-color 0%, $end-color 100%) !important;
+    background: -ms-linear-gradient(left, $start-color 0%, $end-color 100%) !important;
+    background: linear-gradient(to right, $start-color 0%, $end-color 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start-color', endColorstr='$end-color', GradientType=1);
+  } @else {
+    // radial
+    background: -moz-radial-gradient(center, ellipse cover, $start-color 0%, $end-color 100%) !important;
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $start-color), color-stop(100%, $end-color)) !important;
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color 0%, $end-color 100%) !important;
+    background: -o-radial-gradient(center, ellipse cover, $start-color 0%, $end-color 100%) !important;
+    background: -ms-radial-gradient(center, ellipse cover, $start-color 0%, $end-color 100%) !important;
+    background: radial-gradient(ellipse at center, $start-color 0%, $end-color 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start-color', endColorstr='$end-color', GradientType=1);
+  }
+}
+
+//sample gradient
+//@include gradient(black,white,horizontal);
+
+//-----------------------end gradient
+
+//-------------mixin box size
+@mixin box-sizing($type) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  box-sizing: $type;
+}
+
+//-------------mixin transition
+/* @include transition(all,2s,ease-out); */
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+  -webkit-transition: $what $time $how;
+  -moz-transition: $what $time $how;
+  -ms-transition: $what $time $how;
+  -o-transition: $what $time $how;
+  transition: $what $time $how;
+}
+
+//-------------Color button mixin
+@mixin color-button($text-color, $bg-color) {
+  color: $text-color;
+  border: 1px solid mix(black, $bg-color);
+  @include background-image(
+                  linear-gradient(
+                                  lighten($bg-color, 5%),
+                                  darken($bg-color, 5%)
+                  )
+  );
+}
+
+//-------------Button mixin
+@mixin button($text-color, $bg-color) {
+  font: 12px bold sans-serif;
+  padding: 3px 8px;
+  @include color-button($text-color, $bg-color);
+  &:hover, &:focus {
+    @include color-button($text-color, lighten($bg-color, 10%));
+  }
+  &:active {
+    background: darken($bg-color, 5%);
+  }
+}
+
+//------------- mixin push auto
+@mixin push--auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+//-------------Pseudo (after,before)
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+//-------------CSS triangles
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+  @include pseudo($pos: $position);
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round( $size / 2.5 );
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round( $size / 2.5 );
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+//-------------media query
+$breakpoints: (
+        "minWidth": 321px,
+        "smallest-phone":361px,
+        "small-phone": 376px,
+        "phone": 401px,
+        "phone-mid": 421px,
+        "phone-wide": 500px,
+        "phablet": 601px,
+        "tablet-small": 641px,
+        "tablet": 769px,
+        "phone-rotate": 850px,
+        "tablet-normal": 992px,
+        "tablet-wide": 1025px,
+        "desktop-small": 1101px,
+        "desktop-middle":1201px,
+        "desktop": 1259px,
+        "myScreen": 1370px,
+        "desktop-wide": 1441px,
+        "1700": 1700px,
+        'desktop-hd': 1890px,
+        'iMac': 2100px,
+        'maxWidth': 2500px,
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin mqHeight($height, $type: min) {
+  @if map_has_key($breakpoints, $height) {
+    $width: map_get($breakpoints, $height);
+    @if $type == max {
+      $height: $height - 1px;
+    }
+    @media only screen and (#{$type}-height: $height) {
+      @content;
+    }
+  }
+}
+
+//sample
+//.site-header {
+//  padding: 2rem;
+//  font-size: 1.8rem;
+//  @include mq('tablet-wide') {
+//    padding-top: 4rem;
+//    font-size: 2.4rem;
+//  }
+//}
+
+//-------------mixin direction
+@mixin rtl($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value;
+
+  [dir=rtl] & {
+    #{$property}: $rtl-value;
+  }
+}
+
+//sample
+//.sidebar {
+//  @include rtl(float, left, right);
+//}
+
+//-------------mixin square
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+//-------------mixin hover
+@mixin hover {
+  &:not([disabled]):hover {
+    @content;
+  }
+}
+
+//sample
+//.button {
+//  border: 1px solid black;
+//  @include hover {
+//    border-width: 2px;
+//  }
+//}
+
+
+//-------------------title
+
+@mixin titleGraphy {
+  text-shadow: 7px 4px 1px rgba(0, 0, 0, 0.5),
+  3px 3px 5px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  direction: rtl;
+}
+
+//------------------pretty button
+$start-color: rgba(0, 145, 255, 1);
+$end-color: rgba(50, 197, 255, 1);
+@mixin customizeButton {
+  background-color: $white;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  font-weight: bold;
+  padding: 1.2rem 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+
+  @include border-radius(15px);
+
+  &:active {
+    @include gradient($start-color, $end-color, horizontal);
+    color: white
+  }
+}
+
+
+//-----------------absolute center
+@mixin absCenter {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//-----------------fontWeight
+@mixin fontWeight {
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: right;
+  direction: rtl;
+}
+
+
+//------------------flex
+@mixin displayFlex {
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+}
+
+
+//------------------animations
+@mixin animate($name, $duration, $iteration, $direction) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+
+  -webkit-animation-iteration-count: $iteration;
+  -moz-animation-iteration-count: $iteration;
+  -o-animation-iteration-count: $iteration;
+  animation-iteration-count: $iteration;
+
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@include keyframes(pulsate) {
+  0% {
+    @include gradient(#29243b, #432b41, vertical);
+  }
+
+  50% {
+    @include gradient(#432b41, #29243b, vertical);
+  }
+  100% {
+    @include gradient(#29243b, #432b41, vertical);
+  }
+}
+
+@mixin pulsate {
+  @include animate(pulsate, 1.6s, infinite, normal);
+}
+
+//----------------------filter blur
+
+@mixin blurFilter($size){
+  filter:blur($size);
+  -o-filter:blur($size);
+  -ms-filter:blur($size);
+  -moz-filter:blur($size);
+  -webkit-filter:blur($size);
+}
+
+
+
+//----------------------transition
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+
+//----------------------Cross browser opacity
+@mixin Opacity($value){
+  $IEValue: $value*100;
+  opacity: $value !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+//img.preload{
+//  @include Opacity(0);
+//
+//  &.complete{
+//    @include Opacity(1);
+//  }
+//}

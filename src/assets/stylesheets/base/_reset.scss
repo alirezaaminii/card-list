@@ -1,0 +1,72 @@
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  @include set-font-main('Helvetica');
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+//... global
+
+a {
+  color: $white;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+a:focus, a:hover, a:active {
+  text-decoration: none;
+}
+
+.row {
+  width: 100%;
+}
+
+p {
+  color: $white;
+}
+
+ul {
+  padding: 0;
+  margin: 0
+}
+
+li {
+  list-style: none
+}
+
+img {
+  max-width: 100%
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration,
+img {
+  -webkit-appearance: none;
+}
+
+button:focus,input:focus,  a:focus, a, select:focus, textarea:focus, video:focus, audio:focus, source:focus {
+  outline: 0 auto -webkit-focus-ring-color !important;
+}
+
+select::-ms-expand {	display: none; }
+select{
+  -webkit-appearance: none;
+  appearance: none;
+}

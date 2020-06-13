@@ -1,0 +1,96 @@
+.link-tag {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: transparent;
+  z-index: 2;
+}
+
+.mt-8p {
+  margin-top: 8% !important;
+}
+.pt-10p {
+  padding-top: 10% !important;
+}
+
+.opacity_01 {
+  @include Opacity(.1);
+}
+
+.ml--5{
+  margin-left:-5% !important;
+}
+
+.order-sm-0 {
+  @include mq('phablet',max){
+    order:0 !important;
+  }
+}
+.order-sm-1 {
+  @include mq('phablet',max){
+    order:1 !important;
+  }
+}
+
+.w-65 {
+  width: 65% !important;
+  margin-bottom: 0 !important;
+}
+
+.modalsParent , .modalsParentBlogSingle{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  background-color: transparent;
+  display: none;
+}
+
+
+.Opacity_05{
+  @include Opacity(0.5);
+}
+.Opacity_08{
+  @include Opacity(0.8);
+}
+
+.zIndex2 {
+  z-index: 3 !important;
+}
+
+span.m-0.text-warning {
+  font-size: .7rem;
+}
+
+.overFlowHidden {
+  overflow: hidden;
+}
+
+.display-block {
+  display: block;
+}
+.d-none {
+  display: none;
+}
+.d-phablet-block {
+  @include mq('phablet',max){
+    display: block !important;
+  }
+}
+
+.form-group {
+  .css-db79ok {
+    width: 20px;
+    height: 20px;
+    margin-top:6px;
+    margin-left:auto ;
+    margin-right: auto ;
+  }
+}
+
+.css-db79ok {
+  margin-left:auto ;
+  margin-right: auto ;
+  display: block !important;
+}

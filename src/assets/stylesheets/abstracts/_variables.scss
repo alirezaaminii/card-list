@@ -1,0 +1,78 @@
+//... Main Colors
+$accent: null;
+$white: #fff !default;
+$white-500: rgba(167, 164, 164, 0.836) !default;
+$black: #000 !default;
+$green: rgba(79, 222, 97, 1);
+$tealBlue: rgba(36, 115, 113, 1);
+$blue-spiroDiscoBall: rgba(50, 197, 255, 1) !default;
+$gray: #828282 !default;
+$gray-liver: rgba(78, 78, 78, 1) !default;
+$dark-gray: lighten($black, 20%);
+$light-gray: lighten($black, 60%);
+$lighter-gray: lighten($black, 80%);
+
+//... Palet
+
+$desertStorm : #F8F8F7;
+$revolver :#140B16;
+$boulder: #777777;
+$doveGray: #6A6A6A;
+$dustGray: #989898;
+$lividBrown :#4B2940;
+$eunry :#D6A9A7;
+$amulet :#769C7C;
+$amaranth :#EE2753;
+$crail :#C13E4F;
+$deepBlush :#E667AE;
+
+
+
+//-------------media query
+$breakpoints: (
+        "minWidth": 321px,
+        "smallest-phone":361px,
+        "small-phone": 376px,
+        "phone": 401px,
+        "phone-mid": 421px,
+        "phone-wide": 500px,
+        "phablet": 601px,
+        "tablet-small": 641px,
+        "tablet": 769px,
+        "phone-rotate": 850px,
+        "tablet-normal": 992px,
+        "tablet-wide": 1025px,
+        "desktop-small": 1101px,
+        "desktop-middle":1201px,
+        "desktop": 1259px,
+        "myScreen": 1370px,
+        "desktop-wide": 1441px,
+        "1700": 1700px,
+        'desktop-hd': 1890px,
+        'iMac': 2100px,
+        'maxWidth': 2500px,
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin mqHeight($height, $type: min) {
+  @if map_has_key($breakpoints, $height) {
+    $width: map_get($breakpoints, $height);
+    @if $type == max {
+      $height: $height - 1px;
+    }
+    @media only screen and (#{$type}-height: $height) {
+      @content;
+    }
+  }
+}
+

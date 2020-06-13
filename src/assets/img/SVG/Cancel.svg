@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.414" height="11.414" viewBox="0 0 11.414 11.414">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#d2d5db;stroke:#d2d5db;stroke-width:.5px}.prefix__cls-2{stroke:none}.prefix__cls-3{fill:none}
+        </style>
+    </defs>
+    <g id="prefix__Cancel" transform="translate(.707 .707)">
+        <g id="prefix__Rectangle_4" class="prefix__cls-1" data-name="Rectangle 4" transform="rotate(-45 11.177 4.63)">
+            <rect width="13.095" height="1.048" class="prefix__cls-2" rx=".524"/>
+            <rect width="13.595" height="1.548" x="-.25" y="-.25" class="prefix__cls-3" rx=".774"/>
+        </g>
+        <g id="prefix__Rectangle_5" class="prefix__cls-1" data-name="Rectangle 5" transform="rotate(45 .37 .894)">
+            <rect width="12.92" height="1.048" class="prefix__cls-2" rx=".524"/>
+            <rect width="13.42" height="1.548" x="-.25" y="-.25" class="prefix__cls-3" rx=".774"/>
+        </g>
+    </g>
+</svg>

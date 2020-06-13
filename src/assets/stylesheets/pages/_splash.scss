@@ -1,0 +1,26 @@
+// style for splash page
+//********************************
+
+
+//home section
+.ContainerSplash {
+  &_Style {
+    position: fixed !important;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999999999;
+  }
+
+  &__Image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 36% 0 52% 0;
+    @include displayFlex;
+    justify-content: center;
+    align-content: center;
+    img {
+      margin: 0 auto;
+    }
+  }
+}
